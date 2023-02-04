@@ -13,7 +13,7 @@ describe Fastlane::Actions::IosBumpVersionReleaseAction do
       allow(other_action_mock).to receive(:ensure_git_branch).with(branch: default_branch)
     end
 
-    it 'does the fastlane deliver update' do
+    it 'correctly uses the next version, short and long' do
       expect(Fastlane::Helper::GitHelper).to receive(:checkout_and_pull).with(default_branch)
       expect(Fastlane::Helper::GitHelper).to receive(:create_branch).with("release/#{next_version_short}", from: default_branch)
 
